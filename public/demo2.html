@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>文字跑马灯</title>
+    <style>
+      #race_notice_p {
+        position: relative;
+        margin: 20px auto;
+        width: 800px;
+        overflow: hidden;
+        height: 50px;
+      }
+
+      #race_notice_s {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      #race_notice_s p span {
+        margin: 0 20px;
+        line-height: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="race_notice_p">
+      <div id="race_notice_s">
+        <p>
+          <span>基于原生JS实现跑马灯效果，欢迎来到我的主页，知乎@diveng</span>
+        </p>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.onload = function () {
+      function move() {
+        var speed = -15;
+        var race_notice_p = document.getElementById("race_notice_p");
+        var race_notice_s = document.getElementById("race_notice_s");
+        var p = race_notice_s.getElementsByTagName("p")[0];
+        var length = p.offsetWidth;
+        p.innerHTML += p.innerHTML;
+        function move_do() {
+          if (race_notice_s.offsetLeft < -length) {
+            race_notice_s.style.left = 0;
+          }
+          race_notice_s.style.left = race_notice_s.offsetLeft + speed + "px";
+        }
+        setInterval(move_do, 200);
+      }
+      move();
+    };
+  </script>
+</html>

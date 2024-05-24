@@ -1,0 +1,28 @@
+.ListApp,
+body {
+  font-family: sans-serif;
+  text-align: center;
+  height: 100vh;
+  padding: 0;
+  overflow: hidden;
+}
+
+.viewport {
+  height: 100vh;
+  overflow: scroll;
+  position: relative;
+}
+
+.list-phantom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.list-item {
+  padding: 16px 0px;
+  color: #555;
+  box-sizing: border-box;
+  border-bottom: 1px solid #999;
+}

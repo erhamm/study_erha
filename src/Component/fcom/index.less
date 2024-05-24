@@ -1,0 +1,60 @@
+.imgs_box {
+  width: 400px;
+  //   height: 400px;
+  position: relative;
+  padding-top: 10px;
+  .imginput {
+    display: inline-block;
+    position: relative;
+    opacity: 0.7;
+    width: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .imginput:hover .img_icon {
+    opacity: 1;
+  }
+  .imgs_box_img {
+    width: 100px;
+    height: 120px;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .img_icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000000;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+}
+#input_file {
+  display: none;
+}
+.filedownload {
+  display: flex;
+  &-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-right: 8px;
+  }
+  &-href {
+    width: 100%;
+    overflow: hidden;
+    line-height: 24px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  &-disabled {
+    color: rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+  }
+  &-icon {
+    margin-right: 8px;
+    color: #000000;
+  }
+}

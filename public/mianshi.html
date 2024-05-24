@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 背景样式:#FFECE5
+        高:132 宽:700 圆角:12
+        虚线位置距离右边200
+        挖坑位置距离右边200 圆角25 */
+
+      /* 按钮样式: 从左上(#FF9545)到右下#FF1642渐变
+      高:64 宽:自适应 两边内边距:28
+      文字颜色:立即领取#FFFFFF，去使用#FF5000 */
+
+      /* 文字样式
+      文字颜色: #FF5000 #333333 #999999
+      文字大小 64 32 28 24 */
+      .item {
+        width: 700px;
+        height: 132px;
+        border-radius: 12px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffece5;
+        font-size: 24px;
+        padding: 0 20px;
+        .tag {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          color: #ff5000;
+          padding: 0 10px;
+        }
+        .price {
+          font-size: 64px;
+        }
+
+        .left {
+          /* width: 180px; */
+          color: #ff5000;
+          text-align: right;
+        }
+        .price {
+          font-size: 64px;
+        }
+        .center {
+          flex: 1;
+          font-size: 32px;
+          text-align: center;
+        }
+        .right {
+          width: 200px;
+          height: 132px;
+          text-align: center;
+          border-left: 1px dashed #ff5000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .btn {
+          height: max-content;
+          display: inline-block;
+          color: #ffffff;
+          background: linear-gradient(90deg, #ff9545 0%, #ff1642 100%);
+          border-radius: 66px;
+          padding: 12px 28px;
+        }
+        .use {
+          color: #ff5000;
+          background: none;
+          border: 1px solid #ff5000;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="item">
+        <div class="tag">生鲜福利券</div>
+        <div class="left">
+          ¥
+          <span class="price">30</span>
+        </div>
+        <div class="center">指定商品满100元可用</div>
+        <div class="right">
+          <div class="btn">立即领取</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  //点击立即领取时，用promise模拟请求，时长2s
+  const actionDom = document.querySelector(".btn");
+  actionDom.addEventListener("click", () => {
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    }).then((res) => {
+      actionDom.innerHTML = "去使用";
+      // 加上类名use，表示已经领取过了
+      actionDom.classList.add("use");
+
+      const useDom = document.querySelector(".use");
+      useDom.addEventListener("click", () => {
+        window.open("www.baidu.com");
+      });
+    });
+  });
+</script>

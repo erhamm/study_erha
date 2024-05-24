@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Large File Uploader</title>
+    <style>
+      #progress {
+        width: 300px;
+        height: 30px;
+        border: 1px solid #ccc;
+        margin-top: 20px;
+      }
+
+      #progress .bar {
+        height: 100%;
+        background-color: #4caf50;
+        width: 0%;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="fileInput" />
+    <button onclick="startUpload()">开始上传</button>
+    <div id="progress">
+      <div class="bar"></div>
+    </div>
+
+    <script>
+      const chunkSize = 1024 * 1024; // 1MB 分片大小
+      let file;
+      let start = 0;
+      let end = chunkSize;
+      let fileReader = new FileReader();
+      let progressBar = document.querySelector("#progress .bar");
+
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function (e) {
+          file = e.target.files[0];
+        });
+
+      fileReader.onload = function (e) {
+        console.log("e=>", e);
+        // 上传分片
+        uploadChunk(e.target.result, start, end);
+      };
+
+      function startUpload() {
+        if (!file) {
+          alert("请选择文件");
+          return;
+        }
+        uploadChunks();
+      }
+      function uploadChunks() {
+        let uploadedChunks = localStorage.getItem("uploadedChunks");
+        uploadedChunks = uploadedChunks ? JSON.parse(uploadedChunks) : {};
+
+        while (start < file.size) {
+          if (uploadedChunks[start]) {
+            start = uploadedChunks[start]; // 从已上传的分片位置开始上传
+          }
+
+          if (end > file.size) {
+            end = file.size;
+          }
+          fileReader.readAsArrayBuffer(file.slice(start, end));
+          start = end;
+          end = start + chunkSize;
+        }
+      }
+
+      function uploadChunk(chunk, start, end) {
+        // 模拟上传请求，这里可以替换成实际的上传逻辑
+        setTimeout(function () {
+          // 上传成功，更新进度
+          progressBar.style.width = (end / file.size) * 100 + "%";
+
+          // 保存已上传的分片位置到本地存储
+          let uploadedChunks = localStorage.getItem("uploadedChunks");
+          uploadedChunks = uploadedChunks ? JSON.parse(uploadedChunks) : {};
+          uploadedChunks[start] = end;
+          localStorage.setItem(
+            "uploadedChunks",
+            JSON.stringify(uploadedChunks)
+          );
+
+          // 如果还有剩余分片，则继续上传
+          if (start < file.size) {
+            uploadChunks();
+          } else {
+            // 上传完成
+            console.log("上传完成");
+            console.log("1=>", localStorage.getItem("uploadedChunks"));
+          }
+        }, 1000); // 模拟上传延迟
+      }
+    </script>
+  </body>
+</html>

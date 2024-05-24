@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* .App {
+  width: 100%;
+  height: 200px;
+  border: 1px solid red;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /* align-content: center; 
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.App div:nth-child(-n + 4) {
+  width: 200px;
+  height: 60px;
+  border: 1px solid black;
+}
+.App div:nth-child(even) {
+  background-color: green;
+}
+ */
+
+/* .div {
+  width: 200px;
+  height: 300px;
+  border: 1px solid red;
+  position: relative;
+} */
+/* .div div:nth-child(-n + 1) {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
+.div_first {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+.name {
+  font-size: 6px;
 }
 
-.App-link {
-  color: #61dafb;
+[href="#"] {
+  color: blue;
+} */
+/* .App a:nth-child(1) {
+  color: green;
+  font-size: 20px;
+} */
+/* [src*="thumbnail"] {
+  color: red;
+} */
+/* [alt="11"] {
+  color: red;
+}
+.App img:nth-child(2) {
+  color: green;
+}
+.App img:first-child {
+  color: red;
+} */
+
+.div_line {
+  width: 200px;
+  height: 1px;
+  background-color: black;
+}
+.div_line2 {
+  width: 200px;
+  height: 0.5px;
+  background-color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.div_box {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}
+.div1 {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+.div2 {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  margin-top: 10px;
+}
+.img_div {
+  width: 500px;
+  height: 250px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.img_div_inner {
+  width: 120px;
+  height: 100px;
+  /* line-height: 100px; */
+  text-align: center;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.regi_div {
+  width: 400px;
+  padding-top: 20px;
 }

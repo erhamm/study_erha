@@ -1,0 +1,56 @@
+.title {
+  height: 50px;
+  background-color: lightskyblue;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+.main {
+  height: 100px;
+  background-color: lightskyblue;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+.tabbox {
+  height: 50px;
+  background-color: lightskyblue;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+.content {
+  height: 1000px;
+  background-color: lightskyblue;
+  border: 1px solid black;
+}
+.tabright {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.tab {
+  border: 1px solid black;
+  width: 100px;
+  height: 20px;
+  border-radius: 4px;
+  text-align: center;
+}
+.title.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  font-size: 16px;
+}
+.tabbox {
+  font-size: 16px;
+}
+.tabbox.sticky {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+}
+.content-placeholder {
+  height: 60px;
+}

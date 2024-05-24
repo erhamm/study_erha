@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slicing and Splicing</title>
+    <style>
+      .container {
+        position: relative;
+        width: 500px; /* 设置容器宽度 */
+        height: 300px; /* 设置容器高度 */
+      }
+      .slice {
+        position: absolute;
+      }
+      .slice1 {
+        top: 0;
+        left: 0;
+        width: 250px; /* 设置每个分割图片的宽度 */
+        height: 300px; /* 设置每个分割图片的高度 */
+        background-image: url(../../img/img.png); /* 设置分割图片的背景 */
+      }
+      .slice2 {
+        top: 0;
+        left: 250px;
+        width: 250px;
+        height: 300px;
+        background-image: url(../../img/img2.png);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="slice slice1"></div>
+      <!-- 第一部分分割图片 -->
+      <div class="slice slice2"></div>
+      <img src="../../img/img3.png" alt="" id="div2" />
+      <img src="../../img/img3.png" alt="" />
+      <img src="../../img/img3.png" alt="" />
+      <img src="../../img/img3.png" alt="" />
+      <img src="../../img/img3.png" alt="" />
+      <img src="../../img/img3.png" alt="" />
+      <img src="../../img/img3.png" alt="" />
+      <img src="../../img/img3.png" alt="" />
+      <!-- 第二部分分割图片 -->
+      11
+    </div>
+    <script>
+      //   window.addEventListener("scroll", function () {
+      //     var img = document.getElementById("div2");
+      //     var imgOffsetTop = img.getBoundingClientRect().top;
+      //     var pageScrollTop =
+      //       window.pageYOffset || document.documentElement.scrollTop;
+      //     var windowHeight = window.innerHeight;
+
+      //     if (imgOffsetTop - pageScrollTop <= windowHeight) {
+      //       console.log("图片出现在浏览器可视区域内");
+      //     } else {
+      //       console.log("图片未出现在浏览器可视区域内");
+      //     }
+      //   });
+      //   window.addEventListener("scroll", function () {
+      //     var img = document.getElementById("div2");
+      //     var imgRect = img.getBoundingClientRect();
+      //     var isImgInView =
+      //       imgRect.top >= 0 && imgRect.bottom <= window.innerHeight;
+      //     console.log("imgRect.top", imgRect.top);
+      //     console.log("imgRect.bottom", imgRect.bottom);
+      //     console.log("window.innerHeight", window.innerHeight);
+      //     if (isImgInView) {
+      //       console.log("图片出现在浏览器可视区域内");
+      //     } else {
+      //       console.log("图片未出现在浏览器可视区域内");
+      //     }
+      //   });
+      window.addEventListener("scroll", function () {
+        var img = document.getElementById("div2");
+        var imgOffsetTop = img.offsetTop; // 图片距离其最近定位祖先元素顶部的距离
+        var scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop; // 页面被卷去的高度
+
+        // 考虑到边框、内边距等因素，某些情况下可能需要加上父级元素的 clientTop
+        // var parent = img.offsetParent;
+        // var imgOffsetTopWithBorder = img.offsetTop + (parent ? parent.clientTop : 0);
+
+        var viewportHeight = window.innerHeight; // 浏览器可视区域的高度
+
+        if (imgOffsetTop - scrollTop <= viewportHeight) {
+          console.log("图片出现在浏览器可视区域内");
+        } else {
+          console.log("图片未出现在浏览器可视区域内");
+        }
+      });
+    </script>
+  </body>
+</html>

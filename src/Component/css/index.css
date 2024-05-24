@@ -1,0 +1,122 @@
+:root {
+  --background-color-light: rgb(244, 245, 245);
+  --text-color-light: black;
+  --background-color-dark: rgb(62, 63, 67);
+  --text-color-dark: white;
+  --content-background-color-light: rgb(255, 255, 255);
+  --content-background-color-dark: rgb(35, 36, 41);
+  --sider-background-color-light: rgb(228, 228, 229);
+  --sider-background-color-dark: rgb(79, 80, 84);
+  --dark-mode-button-color: rgb(35, 36, 41);
+}
+
+.div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+}
+
+.header,
+.footer {
+  height: 100px;
+  line-height: 100px;
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+}
+
+.main,
+.content {
+  flex: 1;
+  display: flex;
+}
+
+.content {
+  background-color: var(--content-background-color-light);
+  justify-content: center;
+  align-items: center;
+}
+
+.sider {
+  width: 200px;
+  background-color: var(--sider-background-color-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark-mode .header,
+.dark-mode .footer {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+.dark-mode .sider {
+  background-color: var(--sider-background-color-dark);
+  color: var(--text-color-dark);
+}
+
+.dark-mode .content {
+  background-color: var(--content-background-color-dark);
+  color: var(--text-color-dark);
+}
+
+.dark-mode .ant-btn {
+  background-color: var(--dark-mode-button-color);
+  color: var(--text-color-dark);
+}
+/* .div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+}
+
+.header,
+.footer {
+  height: 100px;
+  line-height: 100px;
+  background-color: rgb(244, 245, 245);
+  color: black;
+}
+
+.main,
+.content {
+  flex: 1;
+  display: flex;
+}
+
+.content {
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+  align-items: center;
+}
+
+.sider {
+  width: 200px;
+  background-color: rgb(228, 228, 229);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dark-mode {
+  color: white;
+}
+.dark-mode .header,
+.dark-mode .footer {
+  background-color: rgb(62, 63, 67);
+  color: white;
+}
+
+.dark-mode .sider {
+  background-color: rgb(79, 80, 84);
+}
+
+.dark-mode .content {
+  background-color: rgb(35, 36, 41);
+}
+
+.dark-mode .ant-btn {
+  background-color: rgb(35, 36, 41);
+}
+ */
